@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react'
+import TaskForm from './components/TaskForm'
+import TasksList from './components/TasksList'
+import './index.css'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 function App() {
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-neutral-500 h-screen text-white">
+      <div className="flex items-center justify-center h-full">
+      <BrowserRouter>
+      <Routes>
+          <Route path='/' element={<TasksList/>} />
+          <Route path='/create-task' element={<TaskForm/>} />
+          <Route path='/edit-task/:id' element={<TaskForm/>} />
+      </Routes>
+      </BrowserRouter>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
